@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  workflow_dispatch
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Use Node.js 14 x64
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          architecture: x64
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Get version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.1.0
+
+      - name: Install
+        run: npm ci
+
+      - name: Prepare release
+        id: prepare_release
+        run: |
+          echo ::set-output name=version_tag::v${{ steps.package-version.outputs.current-version }}
+          echo ::set-output name=release_type::$(node -e "console.log(require('semver').prerelease('${{ steps.package-version.outputs.current-version }}') ? 'prerelease' : 'regular')")
+
+      - name: Build
+        run: |
+          npm run build-prod-min
+          npm run build-css
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist/ # The folder the action should deploy.
+
+      - name: Clean up
+        if: ${{ steps.prepare_release.outputs.release_type == 'regular' }}
+        run: |
+          rm -f ${{ steps.prepare_release.outputs.release_notes }}
