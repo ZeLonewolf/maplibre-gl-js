@@ -1,4 +1,4 @@
-import Point from '../util/point';
+import Point from '@mapbox/point-geometry';
 import drawCollisionDebug from './draw_collision_debug';
 
 import SegmentVector from '../data/segment';
@@ -297,7 +297,8 @@ function drawLayerSymbols(painter, sourceCache, layer, coords, isText, translate
             bucket.hasIconData();
 
         if (alongLine) {
-            symbolProjection.updateLineLabels(bucket, coord.posMatrix, painter, isText, labelPlaneMatrix, glCoordMatrix, pitchWithMap, keepUpright);
+            const rotateToLine = layer.layout.get('text-rotate-to-line');
+            symbolProjection.updateLineLabels(bucket, coord.posMatrix, painter, isText, labelPlaneMatrix, glCoordMatrix, pitchWithMap, keepUpright, rotateToLine);
         }
 
         const matrix = painter.translatePosMatrix(coord.posMatrix, tile, translate, translateAnchor),

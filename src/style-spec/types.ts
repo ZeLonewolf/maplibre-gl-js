@@ -9,16 +9,36 @@ export type ResolvedImageSpecification = string;
 
 export type PromoteIdSpecification = {[_: string]: string} | string;
 
+export type FilterSpecificationInputType = string | number | boolean;
 export type FilterSpecification =
-      ['has', string]
-    | ['!has', string]
-    | ['==', string, string | number | boolean]
-    | ['!=', string, string | number | boolean]
-    | ['>', string, string | number | boolean]
-    | ['>=', string, string | number | boolean]
-    | ['<', string, string | number | boolean]
-    | ['<=', string, string | number | boolean]
-    | Array<string | FilterSpecification>; // Can't type in, !in, all, any, none -- https://github.com/facebook/flow/issues/2443
+    // Lookup
+    | ['at', number, (number |string)[]]
+    | ['get', string, Record<string, unknown>?]
+    | ['has', string, Record<string, unknown>?]
+    | ['in', ...FilterSpecificationInputType[], FilterSpecificationInputType | FilterSpecificationInputType[]]
+    | ['index-of', FilterSpecificationInputType, FilterSpecificationInputType | FilterSpecificationInputType[]]
+    | ['length', string | string[]]
+    | ['slice', string | string[], number]
+    // Decision
+    | ['!', FilterSpecification]
+    | ['!=', string | FilterSpecification, FilterSpecificationInputType]
+    | ['<', string | FilterSpecification, FilterSpecificationInputType]
+    | ['<=', string | FilterSpecification, FilterSpecificationInputType]
+    | ['==', string | FilterSpecification, FilterSpecificationInputType]
+    | ['>', string | FilterSpecification, FilterSpecificationInputType]
+    | ['>=', string | FilterSpecification, FilterSpecificationInputType]
+    | ["all", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["any", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["case", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["coalesce", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["match", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["within", ...FilterSpecification[], FilterSpecificationInputType]
+    // Used in convert.ts
+    | ["!in", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["!has", ...FilterSpecification[], FilterSpecificationInputType]
+    | ["none", ...FilterSpecification[], FilterSpecificationInputType]
+    // Fallbak for others
+    | Array<string | FilterSpecification>
 
 export type TransitionSpecification = {
     duration?: number,
@@ -258,6 +278,7 @@ export type SymbolLayerSpecification = {
         "text-rotate"?: DataDrivenPropertyValueSpecification<number>,
         "text-padding"?: PropertyValueSpecification<number>,
         "text-keep-upright"?: PropertyValueSpecification<boolean>,
+        "text-rotate-to-line"?: PropertyValueSpecification<boolean>,
         "text-transform"?: DataDrivenPropertyValueSpecification<"none" | "uppercase" | "lowercase">,
         "text-offset"?: DataDrivenPropertyValueSpecification<[number, number]>,
         "text-allow-overlap"?: PropertyValueSpecification<boolean>,

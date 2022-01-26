@@ -1,4 +1,4 @@
-import Point from '../util/point';
+import Point from '@mapbox/point-geometry';
 import clipLine from './clip_line';
 import PathInterpolator from './path_interpolator';
 
@@ -145,7 +145,8 @@ class CollisionIndex {
             symbol,
             lineVertexArray,
             labelPlaneMatrix,
-            projectionCache);
+            projectionCache,
+            false);
 
         let collisionDetected = false;
         let inGrid = false;
