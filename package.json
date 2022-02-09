@@ -147,7 +147,7 @@
     "source-map-explorer": "^2.5.1",
     "st": "^3.0.0",
     "stylelint": "^14.3.0",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard": "^25.0.0",
     "tap-parser": "^10.0.1",
     "tape": "^5.3.1",
     "tape-filter": "^1.0.4",
