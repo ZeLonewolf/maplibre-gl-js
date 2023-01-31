@@ -564,6 +564,11 @@ CompoundExpression.register(expressions, {
         [StringType, array(StringType)],
         (ctx, [delim, arr]) => arr.evaluate(ctx).join(delim.evaluate(ctx))
     ],
+    'replace-all': [
+        StringType,
+        [StringType, StringType, StringType],
+        (ctx, [s, regex, replacement]) => s.evaluate(ctx).replaceAll(regex.evaluate(ctx), replacement.evaluate(ctx))
+    ],
     'resolved-locale': [
         StringType,
         [CollatorType],

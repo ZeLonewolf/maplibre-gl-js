@@ -212,6 +212,7 @@ export type ExpressionSpecification =
     | ['downcase', string | ExpressionSpecification] // string
     | ['is-supported-script', string | ExpressionSpecification] // boolean
     | ['join', string, (string | ExpressionSpecification)[]] // string
+    | ['replace-all', string | ExpressionSpecification, string | ExpressionSpecification, string | ExpressionSpecification] // string
     | ['resolved-locale', CollatorExpressionSpecification] // string
     | ['split', string, string | ExpressionSpecification] // string[]
     | ['upcase', string | ExpressionSpecification] // string

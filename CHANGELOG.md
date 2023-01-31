@@ -5,6 +5,8 @@
 - Add types for `workerOptions` and `_options` in `geojson_source.ts`
 - Add `split` and `join` expressions ([#2064](https://github.com/maplibre/maplibre-gl-js/pull/2064))
 - *...Add new stuff here...*
+- Implement `replace-all` expression. ([#2059](https://github.com/maplibre/maplibre-gl-js/pull/2059))
+
 ### 🐞 Bug fixes
 - *...Add new stuff here...*
 ## 3.0.0-pre.3
