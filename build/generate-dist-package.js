@@ -14,7 +14,7 @@ async function ensureDist() {
 await writeFile(
   new URL("package.json", await ensureDist()),
   JSON.stringify({
-    name: "@maplibre/distfiles",
+    name: "@americana/distfiles",
     type: "commonjs",
     deprecated: "Please install maplibre-gl from parent directory instead",
   })
