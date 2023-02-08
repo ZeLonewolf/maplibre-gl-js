@@ -27,7 +27,7 @@
       "offscreencanvas"
     ],
     "paths": {
-      "@maplibre/maplibre-gl-style-spec": [
+      "@americana/maplibre-gl-style-spec": [
         "./src/style-spec/style-spec.ts"
     ]
     }

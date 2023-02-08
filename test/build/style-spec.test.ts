@@ -1,6 +1,6 @@
 import {readdir} from 'fs/promises';
 
-describe('@maplibre/maplibre-gl-style-spec npm package', () => {
+describe('@americana/maplibre-gl-style-spec npm package', () => {
     test('files build', async () => {
         expect(await readdir('dist/style-spec')).toMatchInlineSnapshot(`
 [

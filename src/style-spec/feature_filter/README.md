@@ -21,7 +21,7 @@ passes its test.
 ### Usage
 
 ``` javascript
-var ff = require('@maplibre/maplibre-gl-style-spec').featureFilter;
+var ff = require('@americana/maplibre-gl-style-spec').featureFilter;
 
 // will match a feature with class of street_limited,
 // AND an admin_level less than or equal to 3,
