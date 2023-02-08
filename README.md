@@ -1,3 +1,11 @@
+# Americana Experimental Fork
+
+This is an experimental/unstable fork of Maplibre-gl-js intended for experimentation and prototyping for the [OSM Americana](https://github.com/ZeLonewolf/openstreetmap-americana) project. See [Strategy for maplibre-gl-js rendering enhancements #763](https://github.com/ZeLonewolf/openstreetmap-americana/discussions/763) for more details about the purpose of this fork.
+
+Caveats:
+* Features/code may change at any time for any reason
+* As an experimental fork, normal software maintenance activites are not conducted
+
 ![MapLibre Logo](https://maplibre.org/img/maplibre-logo-big.svg)
 
 # MapLibre GL JS

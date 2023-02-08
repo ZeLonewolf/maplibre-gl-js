@@ -1,6 +1,6 @@
 {
   "name": "@americana/maplibre-gl-style-spec",
-  "description": "a specification for maplibre gl styles",
+  "description": "[EXPERIMENTAL/UNSTABLE] a specification for maplibre gl styles",
   "version": "17.1.0",
   "author": "MapLibre",
   "keywords": [
