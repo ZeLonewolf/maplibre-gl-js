@@ -5,6 +5,12 @@ This is an experimental/unstable fork of Maplibre-gl-js intended for experimenta
 Caveats:
 * Features/code may change at any time for any reason
 * As an experimental fork, normal software maintenance activites are not conducted
+* This fork is synced to bleeding edge and showcases the specific features listed below
+
+Experimental features in this fork:
+* Replace-all expression ([#2059](https://github.com/maplibre/maplibre-gl-js/pull/2059))
+* Split and join expressions ([#2064](https://github.com/maplibre/maplibre-gl-js/pull/2064))
+
 
 ![MapLibre Logo](https://maplibre.org/img/maplibre-logo-big.svg)
 
